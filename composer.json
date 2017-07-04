@@ -20,7 +20,7 @@
   "keywords": [
     "wordpress",
     "composer",
-    "wp",
+    "wp"
   ],
   "minimum-stability": "dev",
   "require": {

@@ -38,8 +38,8 @@
     ],
     "post-install-cmd": "composer config-ti-wpcs",
     "post-update-cmd": "composer config-ti-wpcs",
-    "test-phpcbf": "./vendor/bin/phpcbf ./ --standard=vendor/thoughtsideas/ti-wpcs/ti-wpcs",
-    "test-phpcs": "./vendor/bin/phpcs ./ --standard=vendor/thoughtsideas/ti-wpcs/ti-wpcs",
+    "test-phpcbf": "./vendor/bin/phpcbf ./ --standard=vendor/thoughtsideas/ti-wpcs/TI-WPCS/ruleset.xml",
+    "test-phpcs": "./vendor/bin/phpcs ./ --standard=vendor/thoughtsideas/ti-wpcs/TI-WPCS/ruleset.xml",
     "test-phpmd": "./vendor/bin/phpmd ./ text ./vendor/thoughtsideas/ti-wpcs/TI-WPMD/ruleset.xml",
     "test": [
       "composer run test-phpcbf",

@@ -51,9 +51,9 @@ class Requirements_Check {
 	 *
 	 * @since    0.1.0
 	 * @access   private
-	 * @var      string    $wp    Minimum WordPress version required..
+	 * @var      string    $wordpress    Minimum WordPress version required..
 	 */
-	private $wp = '3.8';
+	private $wordpress = '3.8';
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks
@@ -74,7 +74,7 @@ class Requirements_Check {
 	 */
 	public function __construct( $args ) {
 
-		foreach ( array( 'title', 'php', 'wp', 'file' ) as $setting ) {
+		foreach ( array( 'title', 'php', 'wordpress', 'file' ) as $setting ) {
 
 			if ( isset( $args[ $setting ] ) ) {
 				$this->$setting = $args[ $setting ];

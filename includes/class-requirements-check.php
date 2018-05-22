@@ -154,10 +154,10 @@ class Requirements_Check {
 
 		if ( $this->_wp_at_least( $this->wp ) ) {
 			return true;
-		} else {
-			add_action( 'admin_notices', array( $this, 'wp_version_notice' ) );
-			return false;
 		}
+
+		add_action( 'admin_notices', array( $this, 'wp_version_notice' ) );
+		return false;
 
 	}
 

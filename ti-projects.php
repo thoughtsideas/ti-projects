@@ -28,11 +28,16 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * The core plugin class that is used to define internationalization,
- * and plugin hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-ti-projects.php';
+define( 'TI_PROJECTS_VERSION', '0.1.0' );
+
+require plugin_dir_path( __FILE__ ) . 'includes/class-requirements-check.php';
+
+$ti_projects_requirements_check = new TI\Requirements_Check( array(
+	'title' => '[TI] Projects',
+	'php'   => '5.6',
+	'wp'    => '4.9',
+	'file'  => __FILE__,
+));
 
 /**
  * Begins execution of the plugin.
@@ -44,4 +49,12 @@ function run_ti_projects() {
 	$plugin->run();
 }
 
-run_ti_projects();
+if ( $ti_projects_requirements_check->passes() ) {
+
+	require plugin_dir_path( __FILE__ ) . 'includes/class-projects.php';
+
+	run_ti_projects();
+
+}
+
+unset( $ti_projects_requirements_check );

@@ -113,12 +113,14 @@ class Requirements_Check {
 	 * @since    0.1.0
 	 */
 	private function php_passes() {
+
 		if ( $this->_php_at_least( $this->php ) ) {
 			return true;
-		} else {
-			add_action( 'admin_notices', array( $this, 'php_version_notice' ) );
-			return false;
 		}
+
+		add_action( 'admin_notices', array( $this, 'php_version_notice' ) );
+		return false;
+
 	}
 
 	/**

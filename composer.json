@@ -27,24 +27,22 @@
     "php": ">=5.6"
   },
   "require-dev": {
-    "thoughtsideas/ti-wpcs": "*"
+    "thoughtsideas/ti-wpcs": "dev-develop"
   },
   "scripts": {
-    "config-ti-wpcs": [
-      "\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs,../../../vendor/frenck/php-compatibility,../../../vendor/thoughtsideas/ti-wpcs",
-      "\"vendor/bin/phpcs\" --config-set default_standard TI-WPCS",
-      "\"vendor/bin/phpcs\" --config-set colors 1",
-      "\"vendor/bin/phpcs\" --config-set show_progress 1"
-    ],
-    "post-install-cmd": "composer config-ti-wpcs",
-    "post-update-cmd": "composer config-ti-wpcs",
-    "test-phpcbf": "./vendor/bin/phpcbf ./ --standard=vendor/thoughtsideas/ti-wpcs/TI-WPCS/ruleset.xml",
-    "test-phpcs": "./vendor/bin/phpcs ./ --standard=vendor/thoughtsideas/ti-wpcs/TI-WPCS/ruleset.xml",
+    "test-phpcbf": "./vendor/bin/phpcbf --standard=phpcs.xml ./",
+    "test-phpcs": "./vendor/bin/phpcs --standard=phpcs.xml ./",
     "test-phpmd": "./vendor/bin/phpmd ./ text ./vendor/thoughtsideas/ti-wpcs/TI-WPMD/ruleset.xml",
+    "test-phpcpd": "./vendor/bin/phpcpd ./ --regexps-exclude=#vendor/#,#node_modules/# --progress",
+    "test-phpsc": "./vendor/bin/security-checker security:check composer.lock",
+    "test-phpmnd": "./vendor/bin/phpmnd ./ --ignore-funcs=round,sleep --exclude=./vendor/ --progress",
     "test": [
       "composer run test-phpcbf",
       "composer run test-phpcs",
-      "composer run test-phpmd"
+      "composer run test-phpmd",
+      "composer run test-phpcpd",
+      "composer run test-phpsc",
+      "composer run test-phpmnd"
     ]
   }
 }

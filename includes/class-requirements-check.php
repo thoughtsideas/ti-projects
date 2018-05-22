@@ -152,7 +152,7 @@ class Requirements_Check {
 	 */
 	private function wp_passes() {
 
-		if ( $this->_wp_at_least( $this->wp ) ) {
+		if ( $this->_wp_at_least( $this->wordpress ) ) {
 			return true;
 		}
 
@@ -181,7 +181,7 @@ class Requirements_Check {
 	 */
 	public function wp_version_notice() {
 		echo '<div id="wp-version-message" class="error notice is-dismissible">';
-		echo '<p>The &#8220;' . esc_html( $this->title ) . '&#8221; plugin cannot run on WordPress versions older than ' . esc_html( $this->wp ) . '. Please update WordPress.</p>';
+		echo '<p>The &#8220;' . esc_html( $this->title ) . '&#8221; plugin cannot run on WordPress versions older than ' . esc_html( $this->wordpress ) . '. Please update WordPress.</p>';
 		echo '</div>';
 	}
 

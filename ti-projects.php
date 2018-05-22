@@ -32,12 +32,14 @@ define( 'TI_PROJECTS_VERSION', '0.1.0' );
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-requirements-check.php';
 
-$ti_projects_requirements_check = new TI\Requirements_Check( array(
-	'title' => '[TI] Projects',
-	'php'   => '5.6',
-	'wp'    => '4.9',
-	'file'  => __FILE__,
-));
+$ti_projects_requirements_check = new TI\Requirements_Check(
+	array(
+		'title' => '[TI] Projects',
+		'php'   => '5.6',
+		'wp'    => '4.9',
+		'file'  => __FILE__,
+	)
+);
 
 /**
  * Begins execution of the plugin.

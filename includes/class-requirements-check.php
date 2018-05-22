@@ -84,6 +84,7 @@ class Requirements_Check {
 	}
 
 	/**
+	 * Check we pass the criteria.
 	 *
 	 * @since    0.1.0
 	 */
@@ -143,6 +144,7 @@ class Requirements_Check {
 	}
 
 	/**
+	 * Provide notice if failed our check.
 	 *
 	 * @since    0.1.0
 	 */

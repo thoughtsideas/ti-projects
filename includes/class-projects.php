@@ -66,7 +66,7 @@ class Projects {
 	 */
 	public function __construct() {
 		$this->plugin_name = 'ti-projects';
-		$this->version = '0.1.0';
+		$this->version = TI_PROJECTS_VERSION;
 		$this->load_dependencies();
 		$this->set_locale();
 	}

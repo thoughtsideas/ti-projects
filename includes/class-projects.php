@@ -69,6 +69,7 @@ class Projects {
 		$this->version = TI_PROJECTS_VERSION;
 		$this->load_dependencies();
 		$this->set_locale();
+		$this->register_post_type();
 	}
 
 	/**
@@ -100,6 +101,12 @@ class Projects {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-i18n.php';
 		$this->loader = new \Projects\Loader();
 
+		/**
+		 * The class responsible for registering the custom post types required
+		 * by this plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-post-type.php';
+
 	}
 
 	/**
@@ -119,6 +126,23 @@ class Projects {
 			'plugins_loaded',
 			$plugin_i18n,
 			'load_plugin_textdomain'
+		);
+
+	}
+
+	/**
+	 * Register Post Type
+	 */
+	private function register_post_type() {
+			$projects_post_types = new \TI\Post_Type(
+				$this->get_plugin_name(),
+				$this->get_version()
+			);
+
+		$this->loader->add_action(
+			'init',
+			$projects_post_types,
+			'setup_post_type'
 		);
 
 	}

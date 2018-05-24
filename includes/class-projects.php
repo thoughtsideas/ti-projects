@@ -70,6 +70,7 @@ class Projects {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->register_post_type();
+		$this->permalink_setting();
 	}
 
 	/**
@@ -107,6 +108,12 @@ class Projects {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-post-type.php';
 
+		/**
+		 * The class responsible for registering the permalink required
+		 * by this plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-permalink.php';
+
 	}
 
 	/**
@@ -143,6 +150,35 @@ class Projects {
 			'init',
 			$projects_post_types,
 			'setup_post_type'
+		);
+
+	}
+
+	/**
+	 * Setup Permalink setting
+	 */
+	private function permalink_setting() {
+			$projects_permalink_setting = new \TI\Permalink(
+				$this->get_plugin_name(),
+				$this->get_version()
+			);
+
+		$this->loader->add_action(
+			'admin_init',
+			$projects_permalink_setting,
+			'register_setting'
+		);
+
+		$this->loader->add_action(
+			'admin_init',
+			$projects_permalink_setting,
+			'add_settings'
+		);
+
+		$this->loader->add_action(
+			'admin_init',
+			$projects_permalink_setting,
+			'save_settings'
 		);
 
 	}

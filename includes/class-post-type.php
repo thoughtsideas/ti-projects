@@ -101,7 +101,7 @@ class Post_Type {
 			],
 			'has_archive'           => true,
 			'rewrite'               => [
-				'slug'                  => 'projects',
+				'slug'                  => self::get_slug(),
 			],
 			'show_in_rest'          => false,
 			'rest_base'             => $this->plugin_name,
@@ -132,7 +132,7 @@ class Post_Type {
 	 * @access public
 	 * @return string
 	 */
-	function get_default_slug() {
+	function get_slug() {
 
 		/**
 		 * Filters slug applied to the post type
@@ -142,8 +142,8 @@ class Post_Type {
 		 * @param array $this->plugin_name   Deafult post type slug.
 		 */
 		return apply_filters(
-			'ti_post_type_slug',
-			$this->plugin_name
+			'ti_projects_slug',
+			get_option( 'ti_project_base' )
 		);
 
 	}

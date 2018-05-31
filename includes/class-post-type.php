@@ -72,6 +72,38 @@ class Post_Type {
 	}
 
 	/**
+	 * Get supports options.
+	 *
+	 * @since    0.1.0
+	 * @return array
+	 */
+	public function get_supports() {
+
+		$supports = [
+			'title',
+			'editor',
+			'author',
+			'thumbnail',
+			'excerpt',
+			'comments',
+			'revisions',
+		];
+
+		/**
+		 * Filters supports applied to the post type.
+		 *
+		 * @since 0.1.0
+		 *
+		 * @param array $supports   Deafult options for post type.
+		 */
+		return  apply_filters(
+			'ti_projects_post_type_supports',
+			$supports
+		);
+
+	}
+
+	/**
 	 * Get post type arguments.
 	 */
 	public function get_args() {
@@ -88,17 +120,7 @@ class Post_Type {
 			'menu_icon'             => 'dashicons-portfolio',
 			'capability_type'       => 'post',
 			'hierarchical'          => false,
-			'supports'              => [
-				'title',
-				'editor',
-				'author',
-				'thumbnail',
-				'excerpt',
-				'trackbacks',
-				'custom-fields',
-				'comments',
-				'revisions',
-			],
+			'supports'              => self::get_supports(),
 			'has_archive'           => true,
 			'rewrite'               => [
 				'slug'                  => self::get_slug(),

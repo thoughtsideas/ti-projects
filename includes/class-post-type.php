@@ -117,7 +117,7 @@ class Post_Type {
 		 */
 		return wp_parse_args(
 			apply_filters(
-				'ti_post_type_args',
+				'ti_projects_post_type_args',
 				$args
 			),
 			$args
@@ -230,7 +230,7 @@ class Post_Type {
 		 */
 		return wp_parse_args(
 			apply_filters(
-				'ti_post_type_labels',
+				'ti_projects_post_type_labels',
 				$labels
 			),
 			$labels

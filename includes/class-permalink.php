@@ -119,9 +119,9 @@ class Permalink {
 	 */
 	public function output_settings( $args ) {
 		$project_base = get_option( 'ti_project_base' );
-	?>
+		?>
 		<input name="ti_project_base" id="<?php echo esc_attr( $args['label_for'] ); ?>" type="text" value="<?php echo esc_attr( $project_base ); ?>" class="regular-text code" />
-	<?php
+		<?php
 	}
 
 	/**

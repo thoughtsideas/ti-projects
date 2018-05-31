@@ -30,6 +30,10 @@ class Deactivator {
 	 */
 	public static function deactivate() {
 
+		delete_option( 'ti_project_base' );
+		delete_option( 'ti_projects_rewrite_rules_flag' );
+		flush_rewrite_rules();
+
 	}
 
 }

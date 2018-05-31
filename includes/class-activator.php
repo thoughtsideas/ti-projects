@@ -30,6 +30,10 @@ class Activator {
 	 */
 	public static function activate() {
 
+		if ( ! get_option( 'ti_projects_rewrite_rules_flag' ) ) {
+			add_option( 'ti_projects_rewrite_rules_flag', true );
+		}
+
 	}
 
 }

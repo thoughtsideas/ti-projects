@@ -181,6 +181,13 @@ class Projects {
 			'save_settings'
 		);
 
+		$this->loader->add_action(
+			'init',
+			$projects_permalink_setting,
+			'rewrite_rules_flush',
+			20
+		);
+
 	}
 
 	/**

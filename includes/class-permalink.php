@@ -160,4 +160,18 @@ class Permalink {
 
 	}
 
+	/**
+	 * Flush rewrite rules.
+	 *
+	 * @since    0.1.0
+	 */
+	public function rewrite_rules_flush() {
+
+		if ( get_option( 'ti_projects_rewrite_rules_flag' ) ) {
+			flush_rewrite_rules();
+			delete_option( 'ti_projects_rewrite_rules_flag' );
+		}
+
+	}
+
 }

@@ -71,6 +71,7 @@ class Projects {
 		$this->set_locale();
 		$this->register_post_type();
 		$this->permalink_setting();
+		$this->admin_columns();
 	}
 
 	/**
@@ -113,6 +114,12 @@ class Projects {
 		 * by this plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-permalink.php';
+
+		/**
+		 * The class responsible for registering the permalink required
+		 * by this plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-admin-columns.php';
 
 	}
 
@@ -179,6 +186,32 @@ class Projects {
 			'admin_init',
 			$projects_permalink_setting,
 			'save_settings'
+		);
+
+	}
+
+	/**
+	 * Add admin columns.
+	 *
+	 * @since    0.1.0
+	 */
+	private function admin_columns() {
+
+		$projects_admin_columns = new \TI\Admin_Columns(
+			$this->get_plugin_name(),
+			$this->get_version()
+		);
+
+		$this->loader->add_filter(
+			'manage_ti-projects_posts_columns',
+			$projects_admin_columns,
+			'add_featured_image_column_title'
+		);
+
+		$this->loader->add_action(
+			'manage_ti-projects_posts_custom_column',
+			$projects_admin_columns,
+			'add_featured_image_column_content'
 		);
 
 	}

@@ -75,7 +75,7 @@ class Post_Type {
 	 * Get supports options.
 	 *
 	 * @since    0.1.0
-	 * @return array
+	 * @return array Feature to support for post type.
 	 */
 	public function get_supports() {
 
@@ -105,6 +105,9 @@ class Post_Type {
 
 	/**
 	 * Get post type arguments.
+	 *
+	 * @since    0.1.0
+	 * @return array Labels for post type.
 	 */
 	public function get_args() {
 
@@ -152,7 +155,7 @@ class Post_Type {
 	 *
 	 * @since  0.1.0
 	 * @access public
-	 * @return string
+	 * @return string Slug to be used in post type front-end URL.
 	 */
 	function get_slug() {
 

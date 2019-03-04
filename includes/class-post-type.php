@@ -127,6 +127,7 @@ class Post_Type {
 			'has_archive'           => true,
 			'rewrite'               => [
 				'slug'                  => self::get_slug(),
+				'with_front'            => false,
 			],
 			'show_in_rest'          => false,
 			'rest_base'             => $this->plugin_name,

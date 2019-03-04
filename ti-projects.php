@@ -42,6 +42,38 @@ $ti_projects_requirements_check = new TI\Requirements_Check(
 );
 
 /**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-plugin-name-activator.php
+ */
+function activate_ti_projects() {
+
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+	Activator::activate();
+
+}
+
+register_activation_hook(
+	__FILE__,
+	'activate_ti_projects'
+);
+
+
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-plugin-name-deactivator.php
+ */
+function deactivate_plugin_name() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+	Deactivator::deactivate();
+}
+
+register_deactivation_hook(
+	__FILE__,
+	'deactivate_ti_projects'
+);
+
+
+/**
  * Begins execution of the plugin.
  *
  * @since    0.1.0

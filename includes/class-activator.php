@@ -34,6 +34,20 @@ class Activator {
 			add_option( 'ti_projects_rewrite_rules_flag', true );
 		}
 
+		// Set plugin version in database.
+		add_site_option(
+			'ti_projects_version',
+			TI_PROJECTS_VERSION
+		);
+
+		// Set plugin slug in database.
+		add_site_option(
+			'ti_project_base',
+			'ti-projects',
+			'',
+			'yes'
+		);
+
 	}
 
 }
